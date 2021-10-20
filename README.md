@@ -1,29 +1,42 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+ My Reads is an application for categorizing books as Currently reading, Want to read  and Read, Users of the app has the ability to search -remoted database on udacity via a supplied API -for books and add them to their own shelves. Books displayed in the homepage under the shelf name with Title, Thumbnail and Author(s) -if available- . 
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
 
-## TL;DR
+## Project Setup
 
-To get started developing right away:
+* install Node.js for your operating system.
+* clone repo `git clone https://github.com/nakhla/React-project1-MyReads.git`
+* install all project dependencies `npm install`
+* start the development server `npm start`
+* open browser and navigate to  `localhost:3000`
 
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
+## Project Features
 
-## What You're Getting
+* allow users to search for books using as you type search.
+* add book to a shelf
+* move books between shelves in the homepage as well as search page
+* remove book from a shelf
+
+## Project files
 ```bash
 ├── CONTRIBUTING.md
 ├── README.md - This file.
 ├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
 ├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
 ├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
+│   ├── favicon.ico # React Icon, .
 │   └── index.html # DO NOT MODIFY
 └── src
+    ├── components # folder for all created components 
+    │   ├── Book.js # Book componenet used to view book card in search and shelves 
+    │   ├── ListBooks.js # ListBooks compoenent which propagates shelves and assigned books in the homepage
+    │   ├── ListSearchedBooks.js #ListSearchedBooks compoenent which List books in the search page
+    │   ├── SearchBooks.js # component which call search method in the API and hold the state of result books
+    │   └── Shelf.js #component which render books according to its shelf using shelves Array.
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
+    ├── App.js # calls the getall method once it is mounted and have the route paths using react-router-dom
+    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── icons # Helpful images for your app. Use at your discretion.
     │   ├── add.svg
@@ -33,11 +46,10 @@ To get started developing right away:
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
 ```
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
 
 ## Backend Server
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+A backend server is provided by Udacity, [`BooksAPI.js`](src/BooksAPI.js) contains the methods needed to perform necessary operations on the backend:
 
 * [`getAll`](#getall)
 * [`update`](#update)
